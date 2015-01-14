@@ -5,7 +5,7 @@ without having to convert it to dicts all the time
 
 Your class just have to extend the JsonConverter class. That's all. :)
 
-The POC class is just a prove of concept, with different types of data being converted to json.
+The POC file is just a proof of concept, with different types of data being converted to json.
 
 
 License: Use it for free, just don't sell it. ;)

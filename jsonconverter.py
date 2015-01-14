@@ -7,7 +7,7 @@ class JsonConverter:
     class to convert object into json, no matter what.
     """
     def convert(self):
-        props = dict()
+        props = {}
         total_class_attributes = dir(self)
         try:
             for i in total_class_attributes:
@@ -17,18 +17,20 @@ class JsonConverter:
         except Exception, e:
             print e
         return props
+
     def __attr_cleaner(self,attr_name, instance):
         attr = getattr(instance,attr_name)
-        if '__' not in attr_name and not callable(attr): #skip dunders and methods
-            return attr
+        return attr if '__' not in attr_name and not callable(attr) else None #skip dunders and methods
+
 
 
     def __type_checking(self,self_attribute):
-        if self_attribute.__class__.__name__ == 'list':
+        attr_name = self_attribute.__class__.__name__
+        if  attr_name == 'list':
             return self.__list_checking(self_attribute)
-        if self_attribute.__class__.__name__ == 'dict':
+        if  attr_name ==  'dict':
             return self.__dict_checking(self_attribute)
-        if self_attribute.__class__.__name__ in builtin_types:
+        if  attr_name in builtin_types:
             return self_attribute
         else:
             return self.__class_checking(self_attribute)

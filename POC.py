@@ -19,9 +19,9 @@ class AnotherTest():
 
 
 class ExampleClass():
-    def __init__(self,property):
+    def __init__(self, anyproperty):
         self.__secret_prop = 123
-        self.property = property
+        self.property = anyproperty
 
     def __test__(self):
         print('just a test')
@@ -31,7 +31,7 @@ class ExampleClass():
 
 if __name__ == "__main__":
     import json
-    x = Test(1, 2, AnotherTest({'key1':3.1,'key2':None},[4,5,ExampleClass('example')]))
+    x = Test(1, 2, AnotherTest({'key1':3.1, 'key2':None},[4, 5, ExampleClass('example')]))
     cvt = x.convert()
     z = json.dumps(cvt)
     print(z)

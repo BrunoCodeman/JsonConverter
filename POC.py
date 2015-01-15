@@ -1,4 +1,5 @@
 from jsonconverter import JsonConverter
+import json
 
 class Test(JsonConverter):
 
@@ -8,7 +9,7 @@ class Test(JsonConverter):
         self.test_prop3 = test_prop3
 
 
-class AnotherTest():
+class AnotherTest:
 
     def __init__(self, at_prop1, at_prop2):
         self.at_prop1 = at_prop1
@@ -18,7 +19,7 @@ class AnotherTest():
         print('this is a simple method')
 
 
-class ExampleClass():
+class ExampleClass:
     def __init__(self, anyproperty):
         self.__secret_prop = 123
         self.property = anyproperty
@@ -30,8 +31,6 @@ class ExampleClass():
         print("<Gandalf>You shall not pass!</Gandalf>")
 
 if __name__ == "__main__":
-    import json
     x = Test(1, 2, AnotherTest({'key1':3.1, 'key2':None},[4, 5, ExampleClass('example')]))
     cvt = x.convert()
-    z = json.dumps(cvt)
-    print(z)
+    print(cvt)

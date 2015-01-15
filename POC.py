@@ -1,5 +1,4 @@
 from jsonconverter import JsonConverter
-import json
 
 class Test(JsonConverter):
 

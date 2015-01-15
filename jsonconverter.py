@@ -1,4 +1,5 @@
 #coding: utf-8
+import json
 import __builtin__
 builtin_types = dir(__builtin__)
 
@@ -16,7 +17,7 @@ class JsonConverter:
                     props[i] = self.__type_checking(self_attribute) #convert the object to dict if needed
         except Exception, e:
             print e
-        return props
+        return json.dumps(props)
 
     def __attr_cleaner(self,attr_name, instance):
         attr = getattr(instance,attr_name)
